@@ -2,6 +2,8 @@
 
 SpringBoot application that pushes metric data to graphite for learning purposes
 
+![alt](https://github.com/ferzerkerx/graphite-demo/raw/master/graphite_graphana.png)
+
 ## Dependencies
 - Graphite
 - Grafana
