@@ -1,0 +1,22 @@
+language: java
+jdk:
+  - oraclejdk8
+
+addons:
+  sonarcloud:
+    organization: "ferzerkerx-github"
+    token:
+      secure: "gMqD3Tus481CJR1RKDj9QWPKtOuXnL/DNeJBpMee9e3fGKvYikcOjMKlR4vl+UWjaEFS3W301HXkjO7NEv2JczxrBTAofgHYNMgjbbgZMXKvaUe06aHdUJJrGeVBVtqn9RUgX8d5XLuzAoPH98/vJASafoOh9q/hoilcUEfBRwKrh36DH2hzHPATrtog9jOoJyI3pU9XY7ZAHiw6vmMUcp5jjpzCvXqq0xvVXLLuDFwZ54H0/3pH+RoYawJ6gsRuhyttQehSO3JiXSj3F1ZmdCyr7zqbISbdSPlZLPPxuFYlqEABAlUBdQV90BAM4/SIRMfvAK7TyvuKuH/fpEWFViTdxFPq4PPV6VpWfrw9qg5R7RENZplsW+Byv2CsBEsbA7ZZECg2xStnX0TeoQIubQNVEOzFuI8rMWymtwzCyES481RcwM8QYAsCxGaG0eVTzYIyutK/4fb5t4QYNwkuU0w/rkh68zmshmMa3VZxjxa4Lx5GuHqGaCm+GxdVxHYA6Gl/ocsajLOCfa0W7aPeysO3F8WccNizwUxIONy7GqE5WkFZcVxB4/Ums+/TFM4+PkQvROQXGQhT4HLOb24x26gvtDk0x25pRST4XWeGEvUqmhBz7Iby2zOzI1GFwWNRRM+nLLNQ+b8fY5/B3Znn50qbz86ep/DipcTLg59I77k="
+env:
+  secure: "KcZwUPkqZrqvGq6U+/njM2XoKqDMoFFTMfekhMnPi70THidiehaLXxMkPBz2NdppQ8fH96i5ZxBRz0nMJoI9bRnLM4Pvz54GBhQl80wR6vBm6/06b4tSmds7JxYi25HJOYEQG6Gm1NDjl5LKja1vxUsGl6a9tfU7Vm4MDHnr5ZoM765Rb0/eP8quNoi3uvQE0p6eQSy0Gej14y6EeLvBxQ7aawzYEsGb2sL6R9uPHK+gV5VwJCAXodbcQEOvPbL8UNacZMPQx6lSqJtYSaMZDaax9klEtNk3LDdsOhtb+oNWnnK3UKAUW1hOS2nh7Lv1mInIHO+P6gOK3SzeTUK/yOkIPZgbdpwzxXyaaU1VVr0C3mnT/Xnzq1Itfh0CI9eGcuQufzTGWFYw9ZapUAxiRo1bkvtl1ggy8iwwzTnYTqhZRdwPQOGJizkfU6k36vOLAa5933XbcpRJKd5LlsGHvxFYn1oEvPBbmXlgV6MgKcEfH01RXPAIWUD0z+IxGHzH7yK4hQ3xgIZEtagEFdtE9dBUfJR6CflaT5xIGWy+rST1h2rL+vt2GJ4liWlXdFwmOS38ELO9xzv9tJ9/PyAES1Pp/dgHcwo9sgEtBZrPo2HsOoGmZ74QHM+OeIMI2aWxvsnmDsDBpcDXPsJhRyEBJd8s+bN2HnUKdStcLgUbbCk="
+  
+install:
+  - "mvn clean compile"
+  - "npm install -g snyk"
+
+script:
+  - "mvn install sonar:sonar"
+  - "snyk test"
+
+after_success:
+  - snyk monitor
