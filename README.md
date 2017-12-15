@@ -1,5 +1,7 @@
 # Graphite/Grafana demo
 
+[![Build Status](https://travis-ci.org/ferzerkerx/graphite-demo.svg?branch=master)](https://travis-ci.org/ferzerkerx/graphite-demo)
+
 SpringBoot application that pushes metric data to graphite for learning purposes
 
 ![alt](https://github.com/ferzerkerx/graphite-demo/raw/master/graphite_graphana.png)
