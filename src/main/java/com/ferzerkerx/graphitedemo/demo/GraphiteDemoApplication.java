@@ -1,5 +1,7 @@
 package com.ferzerkerx.graphitedemo.demo;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,7 +18,7 @@ import java.util.stream.Stream;
 })
 public class GraphiteDemoApplication implements CommandLineRunner {
 
-
+    private static final Logger LOG = LoggerFactory.getLogger(GraphiteDemoApplication.class);
     private static final int NUMBER_OF_VALUES = 3000;
 
     @Nonnull
@@ -31,12 +33,12 @@ public class GraphiteDemoApplication implements CommandLineRunner {
         SpringApplication springApplication = new SpringApplication(GraphiteDemoApplication.class);
 
         try (ConfigurableApplicationContext run = springApplication.run(args)) {
-
+            LOG.info("Application started");
         }
     }
 
     @Override
-    public void run(String... strings) throws Exception {
+    public void run(String... strings) {
         try (Stream<Long> values = createValues()) {
             values.forEach(this::processValue);
         }

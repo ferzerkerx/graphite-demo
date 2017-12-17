@@ -23,7 +23,7 @@ import static org.apache.commons.io.IOUtils.closeQuietly;
 @Component
 public class GraphiteClient implements Closeable {
 
-    private static Logger LOG = LoggerFactory.getLogger(GraphiteClient.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GraphiteClient.class);
 
     @Nonnull
     private final MetricRegistry metricRegistry;
