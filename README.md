@@ -1,6 +1,7 @@
 # Graphite/Grafana demo
 
 [![Build Status](https://travis-ci.org/ferzerkerx/graphite-demo.svg?branch=master)](https://travis-ci.org/ferzerkerx/graphite-demo)
+[![Quality Gate](https://sonarcloud.io/api/badges/gate?key=com.ferzerkerx.graphite-demo%3Agraphite-demo)](https://sonarcloud.io/dashboard/index/com.ferzerkerx.graphite-demo%3Agraphite-demo)
 
 SpringBoot application that pushes metric data to graphite for learning purposes
 
